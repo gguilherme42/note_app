@@ -1,22 +1,13 @@
 const {app, BrowserWindow, dialog} = require("electron");
+const fs = require("fs");
 
-const getFileFromUser = () => {
-    const files = dialog.showOpenDialog({properties: ["openFile"]});
-
-    if (!files) return;
-
-    console.log(files);
-}
 
 let mainWindow = null;
 
+
+
 app.on("ready", () => {
-    mainWindow = new BrowserWindow({show: false,
-        webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false
-        }
-    });
+    mainWindow = new BrowserWindow({show: false});
 
     mainWindow.webContents.loadFile("app/index.html");
 
@@ -25,7 +16,25 @@ app.on("ready", () => {
         getFileFromUser();
     });
 
+
     mainWindow.on("closed", () => {
         mainWindow = null;
     });
 });
+
+const getFileFromUser = () => {
+    const files = dialog.showOpenDialog({properties: ["openFile"]})
+        .then((response) => {
+            if (!response.filePaths) {console.log("Nada foi selecionado!")};
+            console.log(`Teste: ${response.filePaths}`);
+
+        });
+    
+    //if (!files) return;
+
+    // const file = files[0];
+    // const content = fs.readFileSync(file).toString();
+
+    // console.log(`Teste: ${files}`);
+    // console.log(files[0]);
+}
