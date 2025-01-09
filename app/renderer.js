@@ -19,6 +19,5 @@ const renderMarkdonwToHtml = (markdown) => {
 
 markdownView.addEventListener("keyup", (event) => {
     const currentContent = event.target.value;
-    console.log(currentContent);
     renderMarkdonwToHtml(currentContent);
 });
