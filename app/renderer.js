@@ -11,11 +11,14 @@ const openInDefaultButton = document.querySelector("#open-in-default");
 
 
 const renderMarkdonwToHtml = (markdown) => {
-    htmlView.innerHTML = marked(markdown, {sanitize: true});
+    // htmlView.innerHTML = marked(markdown, {sanitize: true}); -- the books suggest this way to parse markdown to html, but this does'nt work because marked isn't a function
+    htmlView.innerHTML = marked.parse(markdown);
+    
 }
 
 
 markdownView.addEventListener("keyup", (event) => {
     const currentContent = event.target.value;
+    console.log(currentContent);
     renderMarkdonwToHtml(currentContent);
 });
