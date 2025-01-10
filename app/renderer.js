@@ -1,6 +1,6 @@
 const marked = require("marked");
-const markdownView = document.getElementById("markdown");
-const htmlView = document.getElementById("html");
+const markdownView = document.querySelector("#markdown");
+const htmlView = document.querySelector("#html");
 const newFileButton = document.getElementById("new-file");
 const openFileButton = document.getElementById("open-file");
 const saveMarkdownButton = document.getElementById("save-markdown");
@@ -16,14 +16,15 @@ const renderMarkdonwToHtml = (markdown) => {
     
 }
 
+markdownView.addEventListener("keyup", (event) => {
+    const currentContent = event.target.value;
+    renderMarkdonwToHtml(currentContent);
+});
+
 openFileButton.addEventListener("click", () => {
     alert("You clicked!");
     console.log("teste");
 });
 
 
-markdownView.addEventListener("keyup", (event) => {
-    const currentContent = event.target.value;
-    renderMarkdonwToHtml(currentContent);
-});
 
