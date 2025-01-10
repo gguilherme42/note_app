@@ -1,13 +1,13 @@
 const marked = require("marked");
-const markdownView = document.querySelector("#markdown");
-const htmlView = document.querySelector("#html");
-const newFileButton = document.querySelector("#new-file");
+const markdownView = document.getElementById("markdown");
+const htmlView = document.getElementById("html");
+const newFileButton = document.getElementById("new-file");
 const openFileButton = document.getElementById("open-file");
-const saveMarkdownButton = document.querySelector("#save-markdown");
-const reverButton = document.querySelector("#revert");
-const saveHtmlButton = document.querySelector("#save-html");
-const showFileButton = document.querySelector("#show-file");
-const openInDefaultButton = document.querySelector("#open-in-default");
+const saveMarkdownButton = document.getElementById("save-markdown");
+const reverButton = document.getElementById("revert");
+const saveHtmlButton = document.getElementById("save-html");
+const showFileButton = document.getElementById("show-file");
+const openInDefaultButton = document.getElementById("open-in-default");
 
 
 const renderMarkdonwToHtml = (markdown) => {
