@@ -32,10 +32,11 @@ let mainWindow = null;
 
 
 
-app.on("ready", () => {
+
+app.whenReady().then(() => {
     mainWindow = new BrowserWindow({show: false});
 
-    mainWindow.webContents.loadFile("app/index.html");
+    mainWindow.loadFile("app/index.html");
 
     mainWindow.once("ready-to-show", () => {
         mainWindow.show();
@@ -46,5 +47,7 @@ app.on("ready", () => {
     mainWindow.on("closed", () => {
         mainWindow = null;
     });
+
 });
+
 
