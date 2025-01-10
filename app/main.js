@@ -39,7 +39,7 @@ app.on("ready", () => {
 
     mainWindow.once("ready-to-show", () => {
         mainWindow.show();
-        getFileFromUser();
+        // getFileFromUser();
     });
 
 
